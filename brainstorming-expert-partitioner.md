@@ -59,7 +59,7 @@ This is little more than a Linux ISO that boots into a desktop with GParted.
 https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/6/html/Storage_Administration_Guide/s1-system-config-lvm.html
 
 
-![screenshot](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/6/html/Storage_Administration_Guide/s1-system-config-lvm-add-unallocated.html)
+![screenshot](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/6/html/Storage_Administration_Guide/images/lvm-main1.png)
 
 ![screenshot](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/6/html/Storage_Administration_Guide/images/lvm-main2.png)
 
