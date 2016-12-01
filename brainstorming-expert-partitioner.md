@@ -93,11 +93,104 @@ very loosely related to each other.
 
 
 
+## YaST Expert Partitioner
+
+Compared with everything else on the market (including Windows and MacOS), the
+YaST expert partitioner is the most powerful tool by far.
+
+### Available Views
+
+- <Hostname>
+  - Hard Disks
+  - RAID
+  - Volume Management
+  - Crypt Files
+  - Device Mapper
+  - NFS
+  - Btrfs
+  - tmpfs
+  - Unused Devices
+- Device Graph
+- Mount Graph
+- Installation Summary
+- Settings
 
 
-## New Features
+### New Features
+
+Already requested:
 
 - Create filesystem on disk directly without partition table
 
 - Create LUKS on disk directly
 
+
+Not requested yet, but forseeable:
+
+- Btrfs as volume manager (Btrfs spanning multiple partitions, very much like
+  LVM)
+
+
+### Ideas
+
+#### Subvolumes Directly Below a Btrfs Partition
+
+Right now, subvolumes are very much hidden: You only see them in the
+"installation summary" (proposal) view. Otherwise you'll have to click on a
+Btrfs partition and then "Edit" and then on the "subvolumes" volume.
+
+### Hyperlinks in Many Views
+
+Whenever a view is HTML-like (not a table with selectable items), add
+hyperlinks at appropriate places.
+
+Example:
+
+    Partition: /dev/vda3
+
+      Device:
+
+        Device: /dev/vda3
+        Size: 40 GiB
+        Encrypted: No
+        Device Path:
+        Device ID 1:
+        FS ID: 0x83 Linux native
+        File System:
+
+    File System:
+
+        File System: Ext4
+        Mount Point: /home
+        Label: Home
+
+- Size: Same as "Resize" button
+- Encrypted: Toggle encryption
+- FS ID: Change partition type / ID
+- File System: Change filesystem type / format flag
+- Mount point: Edit mount point
+- Label: Edit partition label
+
+etc.
+
+In other cases (if a partition is used by LVM), jump to the appropriate view
+(LVM in this case).
+
+In the table-like views, context menus serve very much the same purpose
+already.
+
+In an ideal world, we'd present only the item a user clicked on - only the
+partition label, only the encryption flag etc; for a first version, we'd open
+the appropriate "edit partition" (etc.) dialog where the user can change other
+things as well.
+
+The problem is that some of those settings are interdependent of each other;
+that would raise usability problems in some cases. For example, changing either
+the partition type or the mount point of a swap partition would also imply to
+change the other, and that is realistically only possible (and usable) if the
+user sees them both at the same time.
+
+_**To be discussed**_
+
+
+### Guided Workflows for Complex Tasks (RAID, LVM)
