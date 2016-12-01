@@ -131,6 +131,7 @@ Not requested yet, but forseeable:
   LVM)
 
 
+
 ### Ideas
 
 #### Subvolumes Directly Below a Btrfs Partition
@@ -139,7 +140,8 @@ Right now, subvolumes are very much hidden: You only see them in the
 "installation summary" (proposal) view. Otherwise you'll have to click on a
 Btrfs partition and then "Edit" and then on the "subvolumes" volume.
 
-### Hyperlinks in Many Views
+
+#### Hyperlinks in Many Views
 
 Whenever a view is HTML-like (not a table with selectable items), add
 hyperlinks at appropriate places.
@@ -193,4 +195,14 @@ user sees them both at the same time.
 _**To be discussed**_
 
 
-### Guided Workflows for Complex Tasks (RAID, LVM)
+
+#### Guided Workflows for Complex Tasks (RAID, LVM)
+
+Setting up a RAID or LVM in the expert partitioner could be easier (at least
+for some very common tasks). Right now, the user has to create and prepare
+partitions, then switch to a different view, create volume groups and logical
+volumes or add partitions or disks to a RAID.
+
+We could design a number of simple workflows for that to collect the relevant
+information in an organized manner.
+
