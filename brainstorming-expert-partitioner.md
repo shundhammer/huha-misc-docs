@@ -36,7 +36,7 @@ https://en.wikipedia.org/wiki/QtParted
 
 
 
-### GNOME disks (gnome-disk-utility
+### GNOME disks (gnome-disk-utility)
 
 https://en.wikipedia.org/wiki/GNOME_Disks
 
@@ -193,6 +193,15 @@ change the other, and that is realistically only possible (and usable) if the
 user sees them both at the same time.
 
 _**To be discussed**_
+
+
+
+#### Show Gaps (Free Space) in Partitions Display
+
+Right now, the partitions display (the table of partitions) does not show any
+gaps (unallocated space) between the partitions, so the user does not get any
+cue about unallocated disk space between partitions. We should display those
+gaps (unless they are tiny - in which case they are probably irrelevant).
 
 
 
