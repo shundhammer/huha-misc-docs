@@ -93,6 +93,23 @@ very loosely related to each other.
 
 
 
+## Existing Storage-related GUI Tools for Windows and MacOS X
+
+There are many partitioning tools for Windows (and some for MacOS X), but none
+of them goes beyond basic partition operations (create, delete, resize, maybe
+move). Available RAID tools typically handle RAID only, not partitions;
+encryption tools handle only encryption.
+
+There is no counterpart to LVM on Windows. MacOS X introduced that only
+recently (called "CoreStorage"), but it is unclear if there are any GUI tools
+available for this yet. They seem to try to hide the LVM as well as the
+encryption layer from the user.
+
+Bottom line: Both Windows and MacOS X have colorful tools with little
+functionality. None of them comes even close to what our Expert partitioner offers.
+
+
+
 ## YaST Expert Partitioner
 
 Compared with everything else on the market (including Windows and MacOS), the
