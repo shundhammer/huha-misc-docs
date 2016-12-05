@@ -32,7 +32,7 @@ https://en.wikipedia.org/wiki/QtParted
 ### KDE partition manager
   https://en.wikipedia.org/wiki/KDE_Partition_Manager
 
-  ![screenshot](https://upload.wikimedia.org/wikipedia/commons/a/af/KDE_Partition_Manager_screenshot.jpg
+  ![screenshot](https://upload.wikimedia.org/wikipedia/commons/a/af/KDE_Partition_Manager_screenshot.jpg)
 
 
 
