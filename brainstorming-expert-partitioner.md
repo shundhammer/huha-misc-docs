@@ -232,3 +232,39 @@ volumes or add partitions or disks to a RAID.
 We could design a number of simple workflows for that to collect the relevant
 information in an organized manner.
 
+
+#### Proposal Refinement Step
+
+This has been requested as a different feature: Support moving partition
+boundaries around during installation, before any changes are already commited
+to disk. That would basically mean to resize partition A, move partition B to
+the front to use the space just freed by partition A, and then resize partition
+B to fill the space.
+
+It would be very difficult to make this work in the general case, and it would
+be even more difficult in the running system because partition B would have to
+be moved on disk, i.e. all content would have to be copied to different
+sectors.
+
+But what many users really want to do is to make minor changes to the storage
+proposal: For example, distribute the disk space differently between / and
+/home. For that, we could introduce an intermediate step between the proposal
+and the expert partitioner that would look very much like the windows partition
+resize dialog, but instead of resizing a windows partition to make space for a
+Linux partition, we'd resize the root partition to make space for the /home
+partition.
+
+
+#### Btrfs as Volume Manager
+
+Btrfs can span multiple disks all by itself, very much like LVM. The question
+is how to present this to the user.
+
+
+#### Btrfs RAID
+
+Btrfs can act as a RAID all by itself. Again, the question is how to present
+this to the user.
+
+
+
