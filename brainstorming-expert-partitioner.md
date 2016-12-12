@@ -277,3 +277,100 @@ explode (too much) while developing libstorage-ng. But taking a look to the
 views already available can be useful for the discussion.
 
 ![screenshot](prototype.png)
+
+
+### Possible Alternative Approaches
+
+The chosen approach with a tree for navigation between all the different views
+and data elements inside that tree (disks, partitions, logical volumes,
+subvolumes, etc.) has a pretty high level of complexity. But then, the entire
+topic has a pretty high level of complexity; it's a multi-dimensional problem:
+We have
+
+- disks
+- partitions
+- LVM logical volumes
+- RAIDs
+- Btrfs subvolumes
+
+and more.
+
+Putting this into a tree is one approach; as a matter of fact, that approach is
+so popular that most alternative tools use the same one, even though most of
+the alternative tools cover only a small aspect of what the YaST expert
+partitioner covers.
+
+But maybe there are other solutions? Maybe there are solutions that can help to
+reduce the complexity -- without sacrificing functionality?
+
+
+#### Tabs Instead of the Tree
+
+The obvious alternative to a tree for navigation would be using tabs more
+extensively. Tabs can help to break down complexity into smaller parts, each of
+which has less complexity.
+
+On the downside, switching a tab means exchanging the entire content of that
+tab page, i.e. it is a complete context switch. Thus, information that is
+needed at the same time to make sense of anything should always be visible on
+the same tab page; and that might be difficult to achieve with a
+multi-dimensional problem such as partitions / LVM physical volumes vs. LVM
+volume groups vs. LVM logical volumes, to name just one example.
+
+In the context of the expert partitioner, using tabs even more extensively has
+several problems:
+
+- Some views already use tabs; for example, in the LVM view, the user can open
+  one tree level for logical volumes, and the view for each of those logical
+  volumes has tabs for overview / physical volumes / logical volumes.
+
+- Screen size limits the number of tabs, not only (but most severely) in
+  NCurses (text) mode, but even in graphical (Qt) mode for many real-world
+  screen resolutions. The current navigation tree already has 13 toplevel
+  items, many of which can be opened to drill down to a more detailed level
+  (from LVM in general to one specific logical volume, similar for RAID etc.);
+  and as the number of requested features increases, so will the number of
+  those toplevel items.
+
+
+Verdict: Tabs are not an adequate substitute for the navigation tree. We'd have
+to give up quite some views and/or functionality.
+
+
+#### (Weird Wild Idea) 3D Graphics for a Multi-Dimensional View
+
+(This is not realistically doable with the current tools, but this is
+brainstorming, so even crazy ideas are allowed)
+
+We could create OpenGL graphics for the storage objects that can be turned and
+twisted to visualize the different dimensions we are working with, very much
+like 3D cubes to switch from one visual desktop to the next: One side for disks
+and partitions, one side for LVM, one side for RAID, etc.
+
+- After the obvious learning curve (how steep would that be?), would users be
+  able to handle this?
+
+- Would it be an improvement, or would it even add to the complexity?
+
+- How would we visualize what storage items?
+
+- Ideally, it would not be just a 3D cube with different textures on each side
+  (that would just be a fancy and expensive alternative to a flat tab page on
+  each side), but the objects (disk, partitions, LVM LVs/VGs/PVs, RAIDs) would
+  be 3D objects themselves that show different aspects of their attributes,
+  depending on from what side you are looking at them. They would have
+  connections to other objects they are connected with - for example, a
+  partition also being an LVM physical volume from one angle, but a part of a
+  disk in another; a multipath disk showing several connections (the "paths")
+  to the target system, thus showing up as alternate, yet ultimately identical
+  objects (this might work great with a second or third half-transparent layer
+  that could be made better visible by turning the 3D view in one or more
+  dimensions).
+
+- 3D graphics are ultimately always mapped to a 2D view since our screens are
+  flat, thus 2-dimensional. The human brain is used to that since this is the
+  daily real world experience with things in the physical world. But would 3
+  dimensions be enough for all the aspects of storage objects we need to
+  present? Or would it rather be a 4 or 5 or even 6-dimensional problem? And
+  would it be possible to map that to the 2D drawing surface we need to display
+  it on? Would the average human understand that?
