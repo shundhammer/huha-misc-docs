@@ -374,3 +374,43 @@ and partitions, one side for LVM, one side for RAID, etc.
   present? Or would it rather be a 4 or 5 or even 6-dimensional problem? And
   would it be possible to map that to the 2D drawing surface we need to display
   it on? Would the average human understand that?
+
+
+
+#### Dedicated Partitioner High-Level Widget
+
+Very much like the package selector widget in the software management subsystem
+of YaST, we could lift some of the limitations of our current generic libyui
+widget set by writing that part in pure C++ for each the Qt and the NCurses
+UI. That would give us access to most (all?) features of Qt, if we'd need any
+of them sorely to overcome current limitations.
+
+Realistically, the NCurses version would remain somewhat limited, but this
+would probably be acceptable since most users would benefit from a better Qt
+version.
+
+We had a similar situation for a long time in the package management subsystem
+before we decided to invest in the powerful high-level widgets:
+
+- General-purpose widgets not providing all the power of the underlying toolkit
+- Always having to take limitations of a text mode into account
+- Always having to take care about limited screen space (mostly for NCurses)
+
+Since we took that step in the package selector, most of the complaints from
+users as well as product managers are history. On the downside, we have to
+maintain two versions of the same thing.
+
+
+**TO DO:**
+
+- Identify limitations
+
+- Come up with better solutions in pure Qt
+
+- Summarize improvements
+
+- Check if the benefit would outweigh the cost:
+
+  - New development
+
+  - Duplicated work for Qt and NCurses versions
