@@ -115,6 +115,8 @@ functionality. None of them comes even close to what our Expert partitioner offe
 Compared with everything else on the market (including Windows and MacOS), the
 YaST expert partitioner is the most powerful tool by far.
 
+![screenshot](expert-main.png)
+
 ### Available Views
 
 - <Hostname>
@@ -157,6 +159,7 @@ Right now, subvolumes are very much hidden: You only see them in the
 "installation summary" (proposal) view. Otherwise you'll have to click on a
 Btrfs partition and then "Edit" and then on the "subvolumes" volume.
 
+![screenshot](expert-btrfs.png)
 
 #### Hyperlinks in Many Views
 
@@ -266,5 +269,11 @@ is how to present this to the user.
 Btrfs can act as a RAID all by itself. Again, the question is how to present
 this to the user.
 
+#### Views in the storage-ng prototype
 
+We already have a prototype of the expert partitioner using the new storage-ng
+code. Is not meant for production. It's just there to ensure things don't
+explode (too much) while developing libstorage-ng. But taking a look to the
+views already available can be useful for the discussion.
 
+![screenshot](prototype.png)
